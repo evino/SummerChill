@@ -1,5 +1,6 @@
 #include "list.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct node node_t;
 struct node {
@@ -31,6 +32,33 @@ list_t *list_new() {
 	l->cursor = NULL;
 
 	return l;
+}
+
+
+void node_delete(node_t **n) {
+	free(*n);
+	*n = NULL;
+	n = NULL;
+
+	return;
+}
+
+
+void list_delete(list_t **l) {
+	move_front(*l);
+
+	while((*l)->cursor != NULL) {
+		printf("DEBUG: %d\n", get_cursor(*l));
+		(*l)->head = (*l)->cursor->next;
+		node_delete(&((*l)->cursor));
+		(*l)->cursor = (*l)->head;
+	}
+
+	free(*l);
+	*l = NULL;
+	l = NULL;
+
+	return;
 }
 
 int list_append(list_t *l, int data) {
