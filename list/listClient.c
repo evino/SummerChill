@@ -31,6 +31,7 @@ int main() {
 	printf("%d\n", get_cursor(testList));
 
 
+	list_delete(&testList);
 
 	return 0;
 }
