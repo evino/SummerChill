@@ -30,6 +30,14 @@ int main() {
 	move_front(testList);
 	printf("%d\n", get_cursor(testList));
 
+	list_append(testList, 99);
+	int tail_val = get_tail(testList);
+	printf("Tail value is %d\n", tail_val);
+
+		list_append(testList, 88);
+	
+
+	walk(testList);
 
 	list_delete(&testList);
 

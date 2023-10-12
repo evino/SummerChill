@@ -48,7 +48,7 @@ void list_delete(list_t **l) {
 	move_front(*l);
 
 	while((*l)->cursor != NULL) {
-		printf("DEBUG: %d\n", get_cursor(*l));
+		// printf("DEBUG: %d\n", get_cursor(*l));
 		(*l)->head = (*l)->cursor->next;
 		node_delete(&((*l)->cursor));
 		(*l)->cursor = (*l)->head;
@@ -88,8 +88,20 @@ int get_head(list_t *l) {
 	return head->data;
 }
 
+int get_tail(list_t *l) {
+	// node_t *tail = l->tail;
+
+	return l->tail->data;
+}
+
 void move_front(list_t *l) {
 	l->cursor = l->head;
+
+	return;
+}
+
+void move_back(list_t *l) {
+	l->cursor = l->tail;
 
 	return;
 }
@@ -101,4 +113,16 @@ void move_next(list_t *l) {
 
 int get_cursor(list_t *l) {
 	return l->cursor->data;
+}
+
+void walk(list_t *l) {
+	move_front(l);
+
+	while(l->cursor != NULL) {
+		printf("%d -> ", get_cursor(l));
+		move_next(l);
+	}
+	printf("NULL\n");
+
+	return;
 }
