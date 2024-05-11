@@ -15,12 +15,12 @@ int main() {
     DeleteNode(&testNode);
     printf("%p\n", testNode);
 
-    queue_t *q =NewQueue(5);
-    if (q == 0) {
-        printf("Exit with error\n");
+    queue_t *q =NewQueue(0);
+    // if (q == 0) {
+    //     printf("Exit with error\n");
 
-        return 1;
-    }
+    //     return 1;
+    // }
 
     return 0;
 }

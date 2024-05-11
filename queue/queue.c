@@ -49,10 +49,12 @@ void DeleteNode(node_t **n) {
 // Queue Constructor
 queue_t *NewQueue(int capacity) {
 
-    if (capacity < 1) {
-        printf("Invalid capacity!\n");
-        return 0;
-    }
+    // if (capacity < 1) {
+    //     printf("Invalid capacity!\n");
+    //     return 0;
+    // }
+
+    assert(capacity > 0);
 
     queue_t *queue = malloc(sizeof(queue_t) * capacity);
     queue->capacity = capacity;
@@ -64,9 +66,7 @@ queue_t *NewQueue(int capacity) {
     return queue;
 }
 
-// Queue Destructor
-void DeleteQueue(queue_t **queue) {
-    
-}
+// TODO: Queue Destructor
+
 
 
